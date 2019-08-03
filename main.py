@@ -24,8 +24,9 @@ def start_callback(bot, update):
         update.message.reply_text('Welcome, admin.')
     else:
         if a.verbose:
-            print('New conversation started with %s' % \
-                  update.message.from_user.first_name)
+            print('New conversation started with %s. User ID: %s' % (
+                  update.message.from_user.first_name,
+                  update.message.from_user.id))
         update.message.reply_text('Hello, %s. This bot does nothing!' % \
                                   update.message.from_user.first_name)
 
