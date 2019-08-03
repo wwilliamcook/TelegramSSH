@@ -9,6 +9,7 @@ import getpass
 
 
 def newPassword(prompt='Password: '):
+    """Securely obtain a new password from the user."""
     while True:
         p = getpass.getpass(prompt)
         if p == getpass.getpass('Confirm password: '):
@@ -18,6 +19,7 @@ def newPassword(prompt='Password: '):
 
 
 def getToken(salt_path, telegram_token_path):
+    """Get the decrypted token from a file or from the user."""
     # Get password salt
     salt = getSalt(salt_path)
 
