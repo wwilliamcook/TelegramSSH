@@ -3,6 +3,10 @@
 # Used for password-based fernet encryption/decryption of arbitrary serializable objects.
 
 
+# References:
+# https://cryptography.io/en/latest/fernet/
+
+
 import base64
 import os
 from cryptography.fernet import Fernet, InvalidToken
