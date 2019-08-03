@@ -15,8 +15,15 @@ You will be prompted to enter your bot's [API token](https://core.telegram.org/b
 To reset your copy of the program, just delete the files ending in `.pickle`, which are used to store the encrypted API token.
 
 ### Dependencies:
-- [cryptography](https://cryptography.io)==2.1.4
 - [python-telegram-bot](https://python-telegram-bot.org/)==11.1.0
+- [cryptography](https://cryptography.io)==2.1.4
 
 ## Usage
 Modify the callback functions in `main.py` to give your bot functionality.
+
+## License
+See the [license](LICENSE) for information on how you can use this program.
+See the dependencies' licenses for additional information:
+- [Telegram Terms of Service](https://telegram.org/tos)
+- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot#license)
+- [cryptography License](https://github.com/pyca/cryptography/blob/master/LICENSE)
