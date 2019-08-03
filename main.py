@@ -3,6 +3,10 @@
 # Runs a Telegram bot.
 
 
+# References:
+# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot/c8dd272e26b939168eaa5812de5bf2b066ff10d6
+
+
 from telegram_bot import TelegramBot
 from arg_parser import parseArgs
 from get_token import getToken
