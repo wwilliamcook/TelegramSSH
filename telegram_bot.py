@@ -12,17 +12,20 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, \
 
 
 class TelegramBot(object):
-    def __init__(self, token, start_callback, message_callback):
+    def __init__(self, token, command_handlers, message_handler):
+        """command_handlers should be dict of {command name: func} pairs"""
+        # Assertions
+        assert type(command_handlers) == dict
+        assert 'start' in command_handlers
+        
         self.__updater = Updater(token=token)
         dispatcher = self.__updater.dispatcher
 
-        # Construct handlers
-        start_handler = CommandHandler('start', start_callback)
-        update_handler = MessageHandler(Filters.text, message_callback)
-
-        # Attach handlers to dispatcher
-        dispatcher.add_handler(start_handler)
-        dispatcher.add_handler(update_handler)
+        # Attach command handlers to dispatcher
+        for cmd in command_handlers:
+            dispatcher.add_handler(CommandHandler(cmd, command_handlers[cmd]))
+        # Attach message handler to dispatcher
+        dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
 
     def start(self):
         """Start bot."""

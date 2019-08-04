@@ -35,7 +35,7 @@ def start_callback(bot, update):
                                   update.message.from_user.first_name)
 
 
-def update_callback(bot, update):
+def message_callback(bot, update):
     """Callback for handling a new message."""
     if update.message.from_user.id == admin_id:
         if a.verbose:
@@ -57,7 +57,9 @@ def main(salt_path, token_path):
     # Get telegram token and get the corresponding bot
     token = getToken(salt_path, token_path)
     print('Token successfully acquired, logging in...')
-    bot = TelegramBot(token, start_callback, update_callback)
+    bot = TelegramBot(token,
+                      {'start': start_callback},
+                      message_callback)
     print('Logged in. Bot started.')
     # Start bot
     bot.start()
