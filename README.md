@@ -15,7 +15,7 @@ You will be prompted to enter your bot's [API token](https://core.telegram.org/b
 Start a chat with this bot using your Telegram account and make note of the nine-digit user ID that the program prints at the console. Put this ID in `main.py` as the admin ID. You can now remotely execute commands by using the `/exec` command in Telegram. For example, try `/exec ls` to see what files are in the program's working directory.
 
 ### Dependencies:
-- [python-telegram-bot](https://python-telegram-bot.org/)==12.1.1
+- [python-telegram-bot](https://python-telegram-bot.org/) (tested with version 12.1.1)
 - [cryptography](https://cryptography.io)
 
 ## License
