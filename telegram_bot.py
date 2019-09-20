@@ -103,7 +103,7 @@ class TelegramBot(object):
             if self._verbose:
                 print(msg)
     
-    def send_admin_message(self, text, log=FAlse):
+    def send_admin_message(self, text, log=False):
         """Send a message to the admin."""
         if log:
             text = '[TELEGRAM LOG]\n' + text
