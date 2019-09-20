@@ -1,10 +1,10 @@
 # TelegramBot
-Premade Python Telegram bot with secure token storage. Written for Python 3.
+Python Telegram bot that enables an 'admin' Telegram user to remotely execute commands on the bot machine. Includes secure password-based token storage.
 
 ## Getting Started
 First install dependencies:
 
-`python3 -m pip install cryptography python-telegram-bot==11.1.0`
+`pip install cryptography python-telegram-bot`
 
 Then start the bot with
 
@@ -15,15 +15,12 @@ You will be prompted to enter your bot's [API token](https://core.telegram.org/b
 To reset your copy of the program, just delete the files ending in `.pickle`, which are used to store the encrypted API token.
 
 ### Dependencies:
-- [python-telegram-bot](https://python-telegram-bot.org/)==11.1.0
-- [cryptography](https://cryptography.io)==2.1.4
-
-## Usage
-Modify the callback functions in `main.py` to give your bot functionality.
+- [python-telegram-bot](https://python-telegram-bot.org/)==12.1.1
+- [cryptography](https://cryptography.io)
 
 ## License
 See the [license](LICENSE) for information on how you can use this program.
 See the dependencies' licenses for additional information:
 - [Telegram Terms of Service](https://telegram.org/tos)
-- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot#license)
+- [python-telegram-bot License](https://github.com/python-telegram-bot/python-telegram-bot#license)
 - [cryptography License](https://github.com/pyca/cryptography/blob/master/LICENSE)
