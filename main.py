@@ -13,40 +13,11 @@ from get_token import getToken
 import logging
 
 
-admin_id = 31415927  # Insert your unique user ID here for bot to respond differently to admin
+admin_id = 314159265  # Insert your unique user ID here
 
 
 # Parse arguments
 a = parseArgs()
-
-
-def start_callback(bot, update):
-    """Callback for handling a new conversation."""
-    if update.message.from_user.id == admin_id:
-        if a.verbose:
-            print('New conversation started with admin.')
-        update.message.reply_text('Welcome, admin.')
-    else:
-        if a.verbose:
-            print('New conversation started with %s. User ID: %s' % (
-                  update.message.from_user.first_name,
-                  update.message.from_user.id))
-        update.message.reply_text('Hello, %s. This bot does nothing!' % \
-                                  update.message.from_user.first_name)
-
-
-def message_callback(bot, update):
-    """Callback for handling a new message."""
-    if update.message.from_user.id == admin_id:
-        if a.verbose:
-            print('Received from admin: %s' % update.message.text)
-        update.message.reply_text('Received: %s' % update.message.text)
-    else:
-        if a.verbose:
-            print('New message received from %s:\n%s' % (
-                update.message.from_user.first_name,
-                update.message.text))
-        update.message.reply_text(update.message.text)
 
 
 def main(salt_path, token_path):
@@ -57,12 +28,11 @@ def main(salt_path, token_path):
     # Get telegram token and get the corresponding bot
     token = getToken(salt_path, token_path)
     print('Token successfully acquired, logging in...')
-    bot = TelegramBot(token,
-                      {'start': start_callback},
-                      message_callback)
+    bot = TelegramBot(token, admin_id=admin_id, verbose=a.verbose)
     print('Logged in. Bot started.')
     # Start bot
     bot.start()
+    bot.idle()
     if a.verbose:
         print('Bot stopped.')
 
