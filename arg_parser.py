@@ -1,3 +1,9 @@
+"""Argument parser for Telegram bot.
+
+@ author Weston Cook
+"""
+
+
 import argparse
 
 def parseArgs():

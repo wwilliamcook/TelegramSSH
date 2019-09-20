@@ -1,10 +1,11 @@
-# telegram_bot.py
-# Author: Weston Cook
-# Wrapper for the python-telegram-bot wrapper.
+"""Implements class TelegramBot, extending telegram.Bot to make a bot
+that can be used to remotely execute commands on the bot machine.
 
+References:
+- https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot/c8dd272e26b939168eaa5812de5bf2b066ff10d6
 
-# References:
-# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot/c8dd272e26b939168eaa5812de5bf2b066ff10d6
+@author Weston Cook
+"""
 
 
 import telegram

@@ -1,10 +1,11 @@
-# main.py
-# Author: Weston Cook
-# Runs a Telegram bot.
+"""Runs a Telegram bot that can be used to remotely execute commands.
 
+References:
+- https://python-telegram-bot.readthedocs.io/en/stable/index.html
+- https://core.telegram.org/bots/api
 
-# References:
-# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot/c8dd272e26b939168eaa5812de5bf2b066ff10d6
+@author Weston Cook
+"""
 
 
 from telegram_bot import TelegramBot

@@ -1,11 +1,11 @@
-# crypto_tools.py
-# Author: Weston Cook
-# Used for password-based fernet encryption/decryption of arbitrary serializable objects.
+"""Functions for password-based fernet encryption/decryption of arbitrary serializable objects.
 
+References:
+- https://cryptography.io/en/latest/fernet/
+- https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
-# References:
-# https://cryptography.io/en/latest/fernet/
-
+@author Weston Cook
+"""
 
 import base64
 import os

@@ -1,6 +1,7 @@
-# get_token.py
-# Author: Weston Cook
-# Used to securely retrieve/store a token from/to a file using a password.
+"""Functions for securely retrieving/storing a token from/to a file using a password.
+
+@author Weston Cook
+"""
 
 
 from crypto_tools import getSalt, getKeyFromPassword, Fernet, \
