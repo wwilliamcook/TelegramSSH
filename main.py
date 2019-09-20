@@ -15,6 +15,7 @@ import logging
 
 
 admin_id = 314159265  # Insert your unique user ID here
+password = None  # Put any string here to use as the token encryption password (optional)
 
 
 def main(args):
@@ -23,7 +24,7 @@ def main(args):
         logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
     
     # Get telegram token and get the corresponding bot
-    token = getToken(args.salt_path, args.token_path)
+    token = getToken(args.salt_path, args.token_path, password=password)
     print('Token successfully acquired, logging in...')
     bot = TelegramBot(token, admin_id=admin_id, verbose=args.verbose)
     print('Logged in. Bot started.')

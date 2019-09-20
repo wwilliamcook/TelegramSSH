@@ -19,7 +19,7 @@ def newPassword(prompt='Password: '):
             print('Passwords do not match. Try again.')
 
 
-def getToken(salt_path, telegram_token_path):
+def getToken(salt_path, telegram_token_path, password=None):
     """Get the decrypted token from a file or from the user."""
     # Get password salt
     salt = getSalt(salt_path)
@@ -35,13 +35,15 @@ def getToken(salt_path, telegram_token_path):
             telegram_token = None
     except FileNotFoundError:
         # Get the token from the user
-        telegram_token = getpass.getpass('Enter Telegram Bot token: ')
+        telegram_token = input('Enter Telegram Bot token: ')
         # Encrypt and save the token
 
+        # Get encryption password
+        if password is None:
+            password = newPassword('Enter a password to encrypt the token: ')
+
         # Get fernet
-        key = getKeyFromPassword(salt,
-                                 newPassword( \
-                                     'Enter a password to encrypt the token: '))
+        key = getKeyFromPassword(salt, password)
         fernet = Fernet(key)
 
         # Encrypt the Telegram token
@@ -55,10 +57,12 @@ def getToken(salt_path, telegram_token_path):
     if telegram_token is None:
         fails = 0
         while fails < 3:
+            # Get encryption password
+            if password is None:
+                password = newPassword('Enter a password to encrypt the token: ')
+
             # Get fernet
-            key = getKeyFromPassword(salt,
-                                     getpass.getpass( \
-                                         'Password: '))
+            key = getKeyFromPassword(salt, password)
             fernet = Fernet(key)
 
             # Decrypt the Telegram token
